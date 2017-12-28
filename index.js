@@ -62,7 +62,7 @@ function pass(req, res, proxyOptions) {
     return;
 }
 
-export default function (mockApiJsonFile) {
+module.exports = function (mockApiJsonFile) {
     MOCK_API_JSON_FILE = mockApiJsonFile;
 
     return pass;
