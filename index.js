@@ -1,5 +1,6 @@
 const fs = require('fs');
 const JSON5 = require('json5');
+const path = require('path');
 
 let mTimeCache = {};
 
