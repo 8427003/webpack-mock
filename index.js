@@ -58,6 +58,10 @@ function pass(req, res, proxyOptions) {
         let result = JSON5.parse(mockData)
         res.json(result);
 
+        // 如果命中了mock 文件，期望就不调用next，但webpack-dev-server没有留阻止next调用接口
+        // 会遇到一个问题，后面的中间件可能会再次res.end而引起程序异常。
+        // 这里 connect-history-api-fallback 就遇到了此问题，根据connect-history-api-fallback 代码作trick处理
+        // 如果 req.headers.accept.indexOf('application/json') === 0，connect-history-api-fallback就跳过执行
         return;
     }
     return;
