@@ -51,7 +51,7 @@ function pass(req, res, next) {
             mockData = fs.readFileSync(mockDataFileFullPath, 'utf8')
         }
         catch(e){
-            console.warn('warn: 404', "request:",req.path+",", 'not found:', mockJsonPath)
+            console.warn('warn: 404', "request:",req.path+",", 'not found:', mockDataFile)
             return res.sendStatus(404);
         }
 
